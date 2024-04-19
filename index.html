@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="library.js" defer></script>
+    <title>Library Project</title>
+</head>
+<body>
+    <button type="button" id="showForm">Add book</button>
+    <dialog class="addBookForm">
+        <form action="#" method="dialog" id="bookForm">
+            <input type="text" id="name" name="name" placeholder="Title">
+            <input type="text" id="author" name="author" placeholder="Author">
+            <input type="number" id="pages" name="pages" placeholder="Pages">
+            <div class="checkbox">
+                <label for="hasBeenRead">Have you read this book?</label>
+                <input type="checkbox" name="hasBeenRead" id="hasBeenRead">
+            </div>
+            <div class="formBttns">
+                <button type="button" id="submit">Submit</button>
+                <button type="button" id="close">Close</button>
+            </div>
+        </form>
+    </dialog>
+    <div class="library">
+        
+    </div>
+    
+</body>
+</html>
