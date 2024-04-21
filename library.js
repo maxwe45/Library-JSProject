@@ -45,12 +45,7 @@ const display = () => {
     let delBttn = document.createElement('button');
     delBttn.classList.add('deleteBttn');
     delBttn.textContent = 'Remove';
-    div.appendChild(delBttn);
-    //Removes the book from the myLibrary array and the div html element
-    delBttn.addEventListener('click', () => {
-        removeBook(book.name);
-        div.remove();
-    })
+
     // html elements to display book info
     let bookTitle = document.createElement('p');
     let bookAuthor = document.createElement('p');
@@ -63,29 +58,46 @@ const display = () => {
     read.classList.add('bookRead');
     // html element text contents
     bookTitle.textContent = book.name;
-    bookAuthor.textContent = book.author;
-    bookPages.textContent = book.pages;
+    bookAuthor.textContent = `by ${book.author}`;
+    bookPages.textContent = `${book.pages} pages`;
+    read.classList.add('cardBttn');
+    delBttn.classList.add('cardBttn');
+
+    //Function to add read button class for its status
+    const readClass = () => {
+        if(book.beenRead===true){
+        read.classList.remove('bookReadFalse');
+        read.classList.add('bookReadTrue')
+        }else{
+        read.classList.remove('bookReadTrue');
+        read.classList.add('bookReadFalse')}};
+    readClass()
 
     //Read button that toggles the read status with the Book prototype toggleread and readText to update the button text content
     read.addEventListener('click', () => {
         book.toggleRead();
         readText();
+        readClass();
+    })
+    //Removes the book from the myLibrary array and the div html element
+    delBttn.addEventListener('click', () => {
+        removeBook(book.name);
+        div.remove();
     })
     //Shows read buttons text content as either read or not and adds to a seperate class
     let readText = () =>{
         if(book.beenRead === true){
             read.textContent = 'Read';
-            read.classList.add('bookReadTrue');
         }
         else{
             read.textContent = 'Not Read'}};
-            read.classList.add('bookReadFalse')
     readText();
     
     div.appendChild(bookTitle);
     div.appendChild(bookAuthor);
     div.appendChild(bookPages);
     div.appendChild(read);
+    div.appendChild(delBttn);
 };
 
 //Button to show the add book form
