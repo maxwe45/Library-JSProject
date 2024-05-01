@@ -8,11 +8,12 @@ const library = document.querySelector('.library');
 let myLibrary = [];
 
 //Constructor for book takes title,author,pages,if its been read
-function Book(name,author,pages,beenRead) {
-    this.name = name;
-    this.author = author;
-    this.pages = pages;
-    this.beenRead = beenRead;
+class Book{
+    constructor(name,author,pages,beenRead){
+        this.name = name;
+        this.author = author;
+        this.pages = pages;
+        this.beenRead = beenRead;}
 };
 //Function to add a book to a library using the form in the website
 function addBookToLibrary() {
